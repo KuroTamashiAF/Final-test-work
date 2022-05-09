@@ -12,14 +12,14 @@ namespace Myprogramm
         }
         public static void PrintArray(string[] arr)
         {
-            Console.Write("[");                                
+            Console.Write("[");
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.Write($"{arr[i]} ");
             }
-            Console.Write("]");                                
+            Console.Write("]");
         }
-        public static string[] SelectionOfElements(string[] ArrayInput)
+        public static int CountValidElement(string[] ArrayInput)
         {
             int CountElementNewArray = 0;
             for (int i = 0; i < ArrayInput.Length; i++)
@@ -29,8 +29,12 @@ namespace Myprogramm
                     CountElementNewArray++;
                 }
             }
-            string[] ResultArray = new string[CountElementNewArray];
-            int k = 0;                                                            
+            return CountElementNewArray;
+        }
+        public static string[] GetTotalArray(string[] ArrayInput, int Lenght)
+        {
+            string[] ResultArray = new string[Lenght];
+            int k = 0;
             for (int j = 0; j < ArrayInput.Length; j++)
             {
                 if (ArrayInput[j].Length <= 3)
@@ -46,9 +50,10 @@ namespace Myprogramm
             int size = 5;
             string[] Array = new string[size];
             FillArray(Array);
-            PrintArray(Array);
-            string[] TotalResultArray = SelectionOfElements(Array);
-            Console.WriteLine();                                              
+            int TotalLenght = CountValidElement(Array);
+            string[] TotalResultArray = new string[TotalLenght];
+            TotalResultArray = GetTotalArray(Array, TotalLenght);
+            Console.WriteLine();
             PrintArray(TotalResultArray);
         }
     }
