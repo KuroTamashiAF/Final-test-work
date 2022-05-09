@@ -46,7 +46,6 @@ namespace Myprogramm
             int size = 5;
             string[] Array = new string[size];
             FillArray(Array);
-            PrintArray(Array);
             string[] TotalResultArray = SelectionOfElements(Array);
             Console.WriteLine();                                              
             PrintArray(TotalResultArray);
